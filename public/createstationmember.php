@@ -43,5 +43,6 @@
         <input type="submit" name="submit" value="Submit">
     </form>
 
+    <a href="index.php"> Back to main page</a>
 
 <?php include "templates/footer.php"; ?>
