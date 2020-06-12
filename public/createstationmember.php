@@ -1,8 +1,15 @@
-<?php include "templates/header.php"; ?>
+<?php
 
-    <?php
+/**
+  * Use an HTML form to create a new entry in the
+  * users table.
+  *
+  */
+
     if (isset($_POST['submit'])) {
+        // Pulling in required files
         require "../config.php";
+        require "../common.php";
 
         try {
             // If the submission was valid, connect to the database
@@ -37,6 +44,17 @@
         }
     }
     ?>
+
+    <?php require "templates/header.php"; ?>
+
+    <?php 
+        // Displays station member first name is user was sucessfully created.
+        if (isset($_POST['submit']) && $statement) {
+            echo $_POST['first_name'];
+            echo " successfully added.";
+        } ?>
+
+    <h2> Add a station member </h2>
 
     <!-- Input form for creating a new station member -->
     <form method="post">

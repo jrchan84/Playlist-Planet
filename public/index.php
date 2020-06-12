@@ -2,10 +2,10 @@
 
 <ul>
   <li>
-    <a href="createstationmember.php"><strong>Create</strong></a> - Add a new station member
+    <a href="createstationmember.php"><strong>New User</strong></a> - Add a new station member
   </li>
   <li>
-    <a href="readstationmember.php"><strong>Read</strong></a> - View list of station members
+    <a href="readstationmember.php"><strong>Search Station Members</strong></a> - Search for station members
   </li>
 </ul>
 
