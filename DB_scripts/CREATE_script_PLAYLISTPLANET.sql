@@ -1,5 +1,5 @@
 CREATE TABLE artists(
-    artist_id INTEGER,
+    artist_id INTEGER AUTO_INCREMENT,
     sex VARCHAR(20),
     name VARCHAR(50),
     nationality VARCHAR(50),
@@ -7,7 +7,7 @@ CREATE TABLE artists(
 );
 
 CREATE TABLE station_library(
-    library_id INTEGER,
+    library_id INTEGER AUTO_INCREMENT,
     call_freq FLOAT,
     call_sign VARCHAR(10),
     name VARCHAR(50),
@@ -15,14 +15,14 @@ CREATE TABLE station_library(
 );
 
 CREATE TABLE studio(
-    studio_id INTEGER,
+    studio_id INTEGER AUTO_INCREMENT,
     capacity INTEGER,
     description VARCHAR(255),
     PRIMARY KEY (studio_id)
 );
 
 CREATE TABLE episodes(
-    episode_id INTEGER,
+    episode_id INTEGER AUTO_INCREMENT,
     studio_id INTEGER NOT NULL,
     start_time DATETIME,
     end_time DATETIME,
@@ -36,7 +36,7 @@ CREATE TABLE episodes(
 
 CREATE TABLE studio_equipment(
     studio_id INTEGER,
-    equip_id INTEGER,
+    equip_id INTEGER AUTO_INCREMENT,
     name VARCHAR(255),
     description VARCHAR(255),
     PRIMARY KEY (equip_id, studio_id),
@@ -46,7 +46,7 @@ CREATE TABLE studio_equipment(
 );
 
 CREATE TABLE shows(
-    show_id INTEGER,
+    show_id INTEGER AUTO_INCREMENT,
     name VARCHAR(255),
     start_date DATE,
     active BOOLEAN,
@@ -54,7 +54,7 @@ CREATE TABLE shows(
 );
 
 CREATE TABLE hosts(
-    host_id INTEGER,
+    host_id INTEGER AUTO_INCREMENT,
     PRIMARY KEY (host_id)
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE administrators(
 );
 
 CREATE TABLE media(
-    media_id INTEGER,
+    media_id INTEGER AUTO_INCREMENT,
     title VARCHAR(255),
     PRIMARY KEY (media_id)
 );
