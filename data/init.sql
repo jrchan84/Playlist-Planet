@@ -57,17 +57,19 @@ CREATE TABLE shows(
     PRIMARY KEY (show_id)
 );
 
+/*
 CREATE TABLE hosts(
     host_id INTEGER AUTO_INCREMENT,
     PRIMARY KEY (host_id)
 );
+*/
 
 CREATE TABLE collectives(
-    host_id INTEGER AUTO_INCREMENT,
+    host_id INTEGER,
     name VARCHAR(255),
     description CHAR(255),
-    PRIMARY KEY (host_id),
-    FOREIGN KEY (host_id) REFERENCES hosts(host_id) ON DELETE CASCADE
+    PRIMARY KEY (host_id)
+    /*FOREIGN KEY (host_id) REFERENCES hosts(host_id) ON DELETE CASCADE*/
 );
 
 CREATE TABLE station_members(
@@ -84,12 +86,12 @@ CREATE TABLE station_members(
     alt_phone VARCHAR(25),
     interests VARCHAR(255),
     skills VARCHAR(255),
-    PRIMARY KEY (host_id),
-    FOREIGN KEY (host_id) REFERENCES hosts(host_id) ON DELETE CASCADE
+    PRIMARY KEY (host_id)
+    /*FOREIGN KEY (host_id) REFERENCES hosts(host_id) ON DELETE CASCADE*/
 );
 
 CREATE TABLE content_creators(
-    host_id INTEGER AUTO_INCREMENT,
+    host_id INTEGER,
     trainings_completed INTEGER,
     membership_fee_paid BOOLEAN,
     PRIMARY KEY (host_id),
@@ -98,7 +100,7 @@ CREATE TABLE content_creators(
 );
 
 CREATE TABLE administrators(
-    host_id INTEGER AUTO_INCREMENT,
+    host_id INTEGER,
     role VARCHAR(255),
     start_date DATE,
     PRIMARY KEY (host_id),
@@ -113,7 +115,7 @@ CREATE TABLE media(
 );
 
 CREATE TABLE tracks(
-    media_id INTEGER AUTO_INCREMENT,
+    media_id INTEGER,
     language VARCHAR(50),
     genre VARCHAR(30),
     album VARCHAR(255),
@@ -123,7 +125,7 @@ CREATE TABLE tracks(
 );
 
 CREATE TABLE psas(
-    media_id INTEGER AUTO_INCREMENT,
+    media_id INTEGER,
     description VARCHAR(255),
     PRIMARY KEY (media_id),
     FOREIGN KEY (media_id) REFERENCES media(media_id)
@@ -131,7 +133,7 @@ CREATE TABLE psas(
 );
 
 CREATE TABLE ads(
-    media_id INTEGER AUTO_INCREMENT,
+    media_id INTEGER,
     description VARCHAR(255),
     PRIMARY KEY (media_id),
     FOREIGN KEY (media_id) REFERENCES media(media_id)
@@ -169,15 +171,15 @@ CREATE TABLE show_has_episode(
     PRIMARY KEY (episode_id, show_id, host_id),
     FOREIGN KEY (episode_id) REFERENCES episodes(episode_id),
     FOREIGN KEY (show_id) REFERENCES shows(show_id),
-    FOREIGN KEY (host_id) REFERENCES hosts(host_id)
+    FOREIGN KEY (host_id) REFERENCES station_members(host_id)
 );
 
 CREATE TABLE members_are_part_of_collectives(
     stn_member_id INTEGER,
     collective_id INTEGER,
     PRIMARY KEY (stn_member_id, collective_id),
-    FOREIGN KEY (stn_member_id) REFERENCES hosts(host_id),
-    FOREIGN KEY (collective_id) REFERENCEs hosts(host_id)
+    FOREIGN KEY (stn_member_id) REFERENCES station_members(host_id),
+    FOREIGN KEY (collective_id) REFERENCEs station_members(host_id)
 );
 
 INSERT INTO artists VALUES (1, 'F', 'Fiona Apple', 'USA');
@@ -246,6 +248,7 @@ INSERT INTO shows VALUES (8, 'Nightcore Network', '2012-09-04', 0);
 INSERT INTO shows VALUES (9, 'Ambient Noise', '2015-02-03', 1);
 INSERT INTO shows VALUES (10, 'Experimental Echoes', '2016-01-07', 1);
 
+/*
 INSERT INTO hosts VALUES (1);
 INSERT INTO hosts VALUES (2);
 INSERT INTO hosts VALUES (3);
@@ -276,6 +279,7 @@ INSERT INTO hosts VALUES (27);
 INSERT INTO hosts VALUES (28);
 INSERT INTO hosts VALUES (29);
 INSERT INTO hosts VALUES (30);
+*/
 
 INSERT INTO collectives VALUES (11, 'Sports Collective', '');
 INSERT INTO collectives VALUES (12, 'News Collective', '');
