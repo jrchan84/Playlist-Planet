@@ -1,4 +1,7 @@
-<?php include "templates/header.php"; ?>
+<?php 
+  include "templates/header.php"; 
+  include "public/css/index.css"
+?>
 
 <ul>
   <li>
