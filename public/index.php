@@ -20,7 +20,7 @@
 
   <div class="Footer">
     Made by Justin Chan, Patrick Lee, Carol Zhang | 
-    <a href="https://github.com/RedundantComputation/playlist-planet"> Github </a>
+    <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
   </div>
 
 <div>
