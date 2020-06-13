@@ -15,7 +15,7 @@
   <div class="Menu">
         <a href="createstationmember.php"><strong>New User</strong></a> - Add a new station member
         <br/>
-        <a href="readstationmember.php"><strong>Search Station Members</strong></a> - Search for station members
+        <a href="readstationmembers.php"><strong>Search Station Members</strong></a> - Search for station members
         <br/>
         <a href="updatestationmembers.php"><strong>Edit Users</strong></a> - Edit station member information
         <br/>
