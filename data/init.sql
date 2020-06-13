@@ -90,7 +90,7 @@ CREATE TABLE station_members(
     /*FOREIGN KEY (host_id) REFERENCES hosts(host_id) ON DELETE CASCADE*/
 );
 
-/*
+
 CREATE TABLE content_creators(
     host_id INTEGER,
     trainings_completed INTEGER,
@@ -99,9 +99,9 @@ CREATE TABLE content_creators(
     FOREIGN KEY (host_id) REFERENCES station_members(host_id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
-*/
 
-/*
+
+
 CREATE TABLE administrators(
     host_id INTEGER,
     role VARCHAR(255),
@@ -110,7 +110,7 @@ CREATE TABLE administrators(
     FOREIGN KEY (host_id) REFERENCES station_members(host_id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
-*/
+
 
 CREATE TABLE media(
     media_id INTEGER AUTO_INCREMENT,
@@ -156,16 +156,20 @@ CREATE TABLE station_owns_media(
     library_id INTEGER,
     media_id INTEGER,
     PRIMARY KEY (library_id, media_id),
-    FOREIGN KEY (library_id) REFERENCES station_library(library_id),
+    FOREIGN KEY (library_id) REFERENCES station_library(library_id)
+        ON UPDATE CASCADE,
     FOREIGN KEY (media_id) REFERENCES media(media_id)
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE episode_consists_of_media(
     episode_id INTEGER,
     media_id INTEGER,
     PRIMARY KEY (episode_id, media_id),
-    FOREIGN KEY (episode_id) REFERENCES episodes(episode_id),
+    FOREIGN KEY (episode_id) REFERENCES episodes(episode_id)
+        ON UPDATE CASCADE,
     FOREIGN KEY (media_id) REFERENCES media(media_id)
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE show_has_episode(
@@ -173,17 +177,22 @@ CREATE TABLE show_has_episode(
     show_id INTEGER,
     host_id INTEGER,
     PRIMARY KEY (episode_id, show_id, host_id),
-    FOREIGN KEY (episode_id) REFERENCES episodes(episode_id),
-    FOREIGN KEY (show_id) REFERENCES shows(show_id),
+    FOREIGN KEY (episode_id) REFERENCES episodes(episode_id)
+        ON UPDATE CASCADE,
+    FOREIGN KEY (show_id) REFERENCES shows(show_id)
+        ON UPDATE CASCADE,
     FOREIGN KEY (host_id) REFERENCES station_members(host_id)
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE members_are_part_of_collectives(
     stn_member_id INTEGER,
     collective_id INTEGER,
     PRIMARY KEY (stn_member_id, collective_id),
-    FOREIGN KEY (stn_member_id) REFERENCES station_members(host_id),
+    FOREIGN KEY (stn_member_id) REFERENCES station_members(host_id)
+        ON UPDATE CASCADE,
     FOREIGN KEY (collective_id) REFERENCEs station_members(host_id)
+        ON UPDATE CASCADE
 );
 
 INSERT INTO artists VALUES (1, 'F', 'Fiona Apple', 'USA');
@@ -317,7 +326,7 @@ INSERT INTO station_members VALUES (28, 'Anna', 'Corrian', 'BC', 'V6T1J5', 'She/
 INSERT INTO station_members VALUES (29, 'Taylor', 'Bennett', 'BC', 'V6X1J5', 'She/Her/Hers', '4513 E 43 Ave', 'Vancouver', 'taylorbennett21@gmail.com', '7789492122', '', '', '');
 INSERT INTO station_members VALUES (30, 'Xi', 'Yuan', 'BC', 'V6W1J5', 'She/Her/Hers', '4552 Boulevard', 'Vancouver', 'xiyuan0407@gmail.com', '7781454567', '', '', '');
 
-/*
+
 INSERT INTO content_creators VALUES (1, 1, 1);
 INSERT INTO content_creators VALUES (2, 0, 1);
 INSERT INTO content_creators VALUES (3, 3, 1);
@@ -339,7 +348,7 @@ INSERT INTO administrators VALUES (27, 'Music Library Curator', '2017-08-26');
 INSERT INTO administrators VALUES (28, 'Digital Library Organizer', '2015-01-23');
 INSERT INTO administrators VALUES (29, 'Technical Assistant', '2016-01-23');
 INSERT INTO administrators VALUES (30, 'Editor-In-Chief', '2014-08-23');
-*/
+
 
 INSERT INTO media VALUES (1, 'Shameika');
 INSERT INTO media VALUES (2, 'forever');

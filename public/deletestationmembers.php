@@ -1,12 +1,34 @@
 <?php
 
 /**
-  * List all users with a link to edit
+  * Delete station members
   */
 
+require "../config.php";
+require "../common.php";
+
+if (isset($_GET["host_id"])) {
+    try {
+        // Make database connection
+        $connection = new PDO($dsn, $username, $password, $options);
+  
+        $id = $_GET["host_id"];
+  
+        $sql = "DELETE FROM station_members WHERE host_id = :host_id";
+        
+        // Prepare, bind, execute SQL statement
+        $statement = $connection->prepare($sql);
+        $statement->bindValue(':host_id', $id);
+        $statement->execute();
+  
+        $success = "User successfully deleted";
+    } catch(PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
+    }
+  }
+
 try {
-    require "../config.php";
-    require "../common.php";
+    
 
     // Establish database connection
     $connection = new PDO($dsn, $username, $password, $options);
@@ -20,7 +42,6 @@ try {
 
     // Store result
     $result = $statement->fetchAll();
-
 } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
 }
@@ -28,7 +49,9 @@ try {
 
 <?php require "templates/header.php"; ?>
 
-<h2>Update station member information</h2>
+<h2>Delete station member information</h2>
+
+<?php if ($success) echo $success; ?>
 
 <table>
     <thead>
@@ -47,7 +70,7 @@ try {
             <th>Interests</th>
             <th>Skills</th>
 
-            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -66,7 +89,7 @@ try {
             <td><?php echo escape($row["alt_phone"]); ?></td>
             <td><?php echo escape($row["interests"]); ?></td>
             <td><?php echo escape($row["skills"]); ?></td>
-            <td><a href="updatestationmember.php?host_id=<?php echo escape($row["host_id"]);?>">Edit</a></td>
+            <td><a href="deletestationmember.php?host_id=<?php echo escape($row["host_id"]);?>">Delete</a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
