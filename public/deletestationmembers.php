@@ -51,7 +51,9 @@ try {
 
 <h2>Delete station member information</h2>
 
-<?php if ($success) echo $success; ?>
+<?php 
+if (isset($_GET["host_id"]) && $success)
+    echo $success; ?>
 
 <table>
     <thead>
@@ -89,7 +91,7 @@ try {
             <td><?php echo escape($row["alt_phone"]); ?></td>
             <td><?php echo escape($row["interests"]); ?></td>
             <td><?php echo escape($row["skills"]); ?></td>
-            <td><a href="deletestationmember.php?host_id=<?php echo escape($row["host_id"]);?>">Delete</a></td>
+            <td><a href="deletestationmembers.php?host_id=<?php echo escape($row["host_id"]);?>">Delete</a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
