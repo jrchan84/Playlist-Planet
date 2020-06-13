@@ -7,9 +7,7 @@
         <title>Playlist Planet</title>
 
         <link rel="stylesheet" href="css/style.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet"> 
+        
     </head>
-
-    <body>
-        <h1>Playlist Planet</h1>
-    </body>
 </html>
