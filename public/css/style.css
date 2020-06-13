@@ -1,15 +1,71 @@
-label {
-  display: block;
-  margin: 5px 0;
+body {
+  margin: 0px !important;
+  padding: 0px !important;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+.Index {
+    margin: auto;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    grid-template-rows: 20fr 20fr 1fr;
+    grid-template-areas:
+      "header"
+      "content"
+      "footer";
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+    height: 100vh;
+    max-width: 1600px;
+    background-color: #212121;
+    font-family: "Roboto", sans-serif;
+  }
 
-td,
-th {
-  padding: 5px;
-  border-bottom: 1px solid #aaa;
-}
+ .Header {
+  grid-column: header;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #6f99ba;
+  padding-top: 150px;
+  }
+
+  .Menu {
+    grid-row: content;
+    font-family: "Roboto", sans-serif;
+    color: white;
+  }
+
+  a:link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: #f38eb0;
+    text-decoration: none;
+  }
+  
+  /* selected link */
+  a:active {
+    color: #f38eb0;
+    text-decoration: none;
+  }
+
+  .Footer {
+    /* grid-column: footer; */
+    grid-row: footer;
+    /* position: absolute; */
+    bottom: 0px;
+    text-align: center;
+    color: white;
+  }
