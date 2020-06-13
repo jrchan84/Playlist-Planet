@@ -17,6 +17,12 @@
         <br/>
         <a href="readstationmember.php"><strong>Search Station Members</strong></a> - Search for station members
   </div>
+
+  <div class="Footer">
+    Made by Justin Chan, Patrick Lee, Carol Zhang | 
+    <a href="https://github.com/RedundantComputation/playlist-planet"> Github </a>
+  </div>
+
 <div>
 
 <?php include "templates/footer.php"; ?>

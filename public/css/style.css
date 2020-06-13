@@ -9,7 +9,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-column-gap: 20px;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 20fr 20fr 1fr;
     grid-template-areas:
       "header"
       "content"
@@ -20,6 +20,7 @@ body {
     height: 100vh;
     max-width: 1600px;
     background-color: #212121;
+    font-family: "Roboto", sans-serif;
   }
 
  .Header {
@@ -61,11 +62,10 @@ body {
   }
 
   .Footer {
-    grid-column: footer;
+    /* grid-column: footer; */
     grid-row: footer;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0px;
     text-align: center;
-    padding-left: 10%;
-    padding-right: 10%;
+    color: white;
   }
