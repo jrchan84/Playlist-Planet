@@ -35,6 +35,7 @@ CREATE TABLE episodes(
     description VARCHAR(255),
     PRIMARY KEY (episode_id),
     FOREIGN KEY (studio_id) REFERENCES studio(studio_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
@@ -97,7 +98,8 @@ CREATE TABLE content_creators(
     membership_fee_paid BOOLEAN,
     PRIMARY KEY (host_id),
     FOREIGN KEY (host_id) REFERENCES station_members(host_id)
-        ON DELETE CASCADE ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 
@@ -108,7 +110,8 @@ CREATE TABLE administrators(
     start_date DATE,
     PRIMARY KEY (host_id),
     FOREIGN KEY (host_id) REFERENCES station_members(host_id)
-        ON DELETE CASCADE ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 
@@ -126,6 +129,7 @@ CREATE TABLE tracks(
     PRIMARY KEY (media_id),
     FOREIGN KEY (media_id) REFERENCES media(media_id)
         ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE psas(
@@ -134,6 +138,7 @@ CREATE TABLE psas(
     PRIMARY KEY (media_id),
     FOREIGN KEY (media_id) REFERENCES media(media_id)
         ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE ads(
@@ -142,14 +147,19 @@ CREATE TABLE ads(
     PRIMARY KEY (media_id),
     FOREIGN KEY (media_id) REFERENCES media(media_id)
         ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE performed_by(
     artist_id INTEGER,
     media_id INTEGER,
     PRIMARY KEY (artist_id, media_id),
-    FOREIGN KEY (artist_id) REFERENCES artists(artist_id) ON UPDATE CASCADE,
-    FOREIGN KEY (media_id) REFERENCES tracks(media_id) ON UPDATE CASCADE
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (media_id) REFERENCES tracks(media_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE station_owns_media(
@@ -157,8 +167,10 @@ CREATE TABLE station_owns_media(
     media_id INTEGER,
     PRIMARY KEY (library_id, media_id),
     FOREIGN KEY (library_id) REFERENCES station_library(library_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
     FOREIGN KEY (media_id) REFERENCES media(media_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
@@ -167,8 +179,10 @@ CREATE TABLE episode_consists_of_media(
     media_id INTEGER,
     PRIMARY KEY (episode_id, media_id),
     FOREIGN KEY (episode_id) REFERENCES episodes(episode_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
     FOREIGN KEY (media_id) REFERENCES media(media_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
@@ -178,10 +192,13 @@ CREATE TABLE show_has_episode(
     host_id INTEGER,
     PRIMARY KEY (episode_id, show_id, host_id),
     FOREIGN KEY (episode_id) REFERENCES episodes(episode_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
     FOREIGN KEY (show_id) REFERENCES shows(show_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
     FOREIGN KEY (host_id) REFERENCES station_members(host_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
@@ -190,8 +207,10 @@ CREATE TABLE members_are_part_of_collectives(
     collective_id INTEGER,
     PRIMARY KEY (stn_member_id, collective_id),
     FOREIGN KEY (stn_member_id) REFERENCES station_members(host_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
     FOREIGN KEY (collective_id) REFERENCEs station_members(host_id)
+        ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
