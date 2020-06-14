@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
         $connection = new PDO($dsn, $username, $password, $options);
 
         // SQL read statement
-        $sql = "SELECT artists.artist_id, artists.name, performed_by.media_id, tracks.album
+        $sql = "SELECT artists.artist_id, artists.name, performed_by.media_id, tracks.album, tracks.genre
                 FROM artists 
                 JOIN performed_by ON artists.artist_id = performed_by.artist_id
                 JOIN tracks ON tracks.media_id = performed_by.media_id
@@ -54,6 +54,7 @@ if (isset($_POST['submit'])) {
                     <th>Artist Name(s)</th>
                     <th>Media ID</th>
                     <th>Album Name</th>
+                    <th>Genre</th>
                 </tr>
             </thead>
             <tbody>
@@ -63,10 +64,13 @@ if (isset($_POST['submit'])) {
                     <td><?php echo escape($row["name"]); ?></td>
                     <td><?php echo escape($row["media_id"]); ?></td>
                     <td><?php echo escape($row["album"]); ?></td>
+                    <td><?php echo escape($row["genre"]); ?></td>
                 </tr>
                 <?php } ?>
             </tbody>
         </table>
+
+        <a href="index.php"> Back to main page</a>
     <?php } else { ?>
         No results found for <?php echo escape($_POST['album_name']); ?>.
     <?php }
