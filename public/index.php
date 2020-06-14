@@ -21,7 +21,7 @@
         <br/>
         <a href="deletestationmembers.php"><strong>Remove Station Members</strong></a> - Remove station member information
         <br/>
-        <a href="join.php"><strong>Find Album Artist</strong></a> - Find album artist information
+        <a href="findalbumartist.php"><strong>Find Album Artist</strong></a> - Find album artist information
         <br />
         <a href="projectstationmembers.php"><strong>Find Station Member Information</strong></a> - Find specific types of information about station members
   </div>
