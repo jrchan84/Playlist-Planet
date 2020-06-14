@@ -38,33 +38,32 @@ body {
     color: white;
   }
 
+  .Menu-item {
+    margin-top: 50px;
+  }
+
   a:link {
     color: white;
     text-decoration: none;
   }
   
-  /* visited link */
   a:visited {
     color: white;
     text-decoration: none;
   }
   
-  /* mouse over link */
   a:hover {
     color: #f38eb0;
     text-decoration: none;
   }
   
-  /* selected link */
   a:active {
     color: #f38eb0;
     text-decoration: none;
   }
 
   .Footer {
-    /* grid-column: footer; */
     grid-row: footer;
-    /* position: absolute; */
     bottom: 0px;
     text-align: center;
     color: white;
