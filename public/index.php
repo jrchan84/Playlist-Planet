@@ -19,7 +19,9 @@
         <br/>
         <a href="updatestationmembers.php"><strong>Edit Users</strong></a> - Edit station member information
         <br/>
-        <a href="deletestationmembers.php"><strong>Remove Station Members></strong></a> - Remove station member information
+        <a href="deletestationmembers.php"><strong>Remove Station Members</strong></a> - Remove station member information
+        <br />
+        <a href="projectstationmembers.php"><strong>Find Station Member Information</strong></a> - Find specific types of information about station members
   </div>
 
   <div class="Footer">
