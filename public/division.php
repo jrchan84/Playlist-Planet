@@ -1,8 +1,6 @@
-/**
-  * Retrieve episode_id's of episodes that are in every show
-  *
-  */
 <?php
+//Retrieve episode_id's of episodes that are in every show
+
 
 if (isset($_POST['submit'])) {
 // Pulling in required files
@@ -14,7 +12,7 @@ if (isset($_POST['submit'])) {
         $connection = new PDO($dsn, $username, $password, $options);
 
         // SQL statement
-        $sql = "SELECT E.episode_id
+        $sql = "SELECT E.episode_id, E.title
                 FROM episodes E
                 WHERE E.episode_id = :episode_id AND NOT EXISTS
                     (SELECT *
@@ -30,7 +28,7 @@ if (isset($_POST['submit'])) {
         $statement = $connection->prepare($sql);
         $statement->bindValue(':episode_id', $episode, PDO::PARAM_STR);
         $statement->execute();
-        $result = $statement->fetchAll();
+        $result = $statement->fetchAll(PDO::FETCH_CLASS);
 
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
@@ -55,7 +53,11 @@ if (isset($_POST['submit'])) {
     // Displays host_id of host who has hosted every episode if found
     if (isset($_POST['submit']) && $result) {
         echo "Episode ";
-        echo $_POST["episode_id"];
+        foreach($result as $row){
+            print $row->episode_id;
+            print ", ";
+            print $row->title;
+        }
         echo " is in every show";
     } else if (isset($_POST['submit'])) {
         echo "Episode ";
