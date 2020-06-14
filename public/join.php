@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
         <table>
             <thead>
                 <tr>
-                    <th>Artist(s) Name(s)</th>
+                    <th>Artist Name(s)</th>
                 </tr>
             </thead>
             <tbody>
