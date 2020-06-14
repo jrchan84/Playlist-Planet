@@ -2,7 +2,7 @@
 
 /**
   * Function to query information based on
-  * a parameter: in this case, first name.
+  * a parameter: in this case, album name.
   *
   */
 
@@ -16,11 +16,11 @@ if (isset($_POST['submit'])) {
 
         // SQL read statement
         $sql = "SELECT artists.name
-                FROM artists, performed_by, tracks
+                FROM artists 
+                JOIN performed_by ON artists.artist_id = performed_by.artist_id
+                JOIN tracks ON tracks.media_id = performed_by.media_id
                 WHERE 
-                    tracks.album = :album_name AND
-                    tracks.media_id = performed_by.media_id AND
-                    performed_by.artist_id = artists.artist_id";
+                    tracks.album = :album_name";
         
         // Store album name variable
         $album_name = $_POST['album_name'];
@@ -50,14 +50,13 @@ if (isset($_POST['submit'])) {
         <table>
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Artist(s) Name(s)</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($result as $row) { ?>
                 <tr>
-                    <td><?php echo escape($row["album_name"]); ?></td>
+                    <td><?php echo escape($row["name"]); ?></td>
                 </tr>
                 <?php } ?>
             </tbody>
