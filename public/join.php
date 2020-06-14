@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
         $connection = new PDO($dsn, $username, $password, $options);
 
         // SQL read statement
-        $sql = "SELECT artists.name
+        $sql = "SELECT artists.artist_id, artists.name, performed_by.media_id, tracks.album
                 FROM artists 
                 JOIN performed_by ON artists.artist_id = performed_by.artist_id
                 JOIN tracks ON tracks.media_id = performed_by.media_id
@@ -50,13 +50,19 @@ if (isset($_POST['submit'])) {
         <table>
             <thead>
                 <tr>
+                    <th>Artist ID</th>
                     <th>Artist Name(s)</th>
+                    <th>Media ID</th>
+                    <th>Album Name</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($result as $row) { ?>
                 <tr>
+                    <td><?php echo escape($row["artist_id"]); ?></td>
                     <td><?php echo escape($row["name"]); ?></td>
+                    <td><?php echo escape($row["media_id"]); ?></td>
+                    <td><?php echo escape($row["album"]); ?></td>
                 </tr>
                 <?php } ?>
             </tbody>

@@ -19,7 +19,9 @@
         <br/>
         <a href="updatestationmembers.php"><strong>Edit Users</strong></a> - Edit station member information
         <br/>
-        <a href="deletestationmembers.php"><strong>Remove Station Members></strong></a> - Remove station member information
+        <a href="deletestationmembers.php"><strong>Remove Station Members</strong></a> - Remove station member information
+        <br/>
+        <a href="join.php"><strong>Find Album Artist</strong></a>
   </div>
 
   <div class="Footer">
