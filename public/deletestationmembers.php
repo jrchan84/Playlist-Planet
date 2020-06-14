@@ -21,7 +21,7 @@ if (isset($_GET["host_id"])) {
         $statement->bindValue(':host_id', $id);
         $statement->execute();
   
-        $success = "User successfully deleted";
+        $success = "Station member information successfully deleted";
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
