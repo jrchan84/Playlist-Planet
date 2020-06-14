@@ -14,13 +14,21 @@ if (isset($_POST['submit'])) {
         // make database connection
         $connection = new PDO($dsn, $username, $password, $options);
 
-        // SQL read statement
-        $sql = "SELECT * 
-                FROM station_members
-                WHERE first_name = :first_name";
-        
-        // Store first name variable
+        // Store first name variable and selected columns
         $first_name = $_POST['first_name'];
+        if (isset($_POST['fields']))
+            $field = $_POST['fields'];
+
+        // SQL read statement
+        if (isset($_POST['fields'])) {
+            $sql = "SELECT " . implode(',', $_POST['fields']) .
+                    " FROM station_members
+                    WHERE first_name = :first_name";
+        } else {
+            $sql = "SELECT *
+                    FROM station_members
+                    WHERE first_name = :first_name";
+        }
 
         // Prepare, bind and execute SQL statement
         $statement = $connection->prepare($sql);
@@ -47,6 +55,12 @@ if (isset($_POST['submit'])) {
         <table>
             <thead>
                 <tr>
+                    <?php if (isset($_POST['fields'])) {
+                        $fields = $_POST['fields'];
+                        foreach ($fields as $field) { ?>
+                            <th><?php echo $field?></th>
+                    <?php }
+                        } else { ?>
                     <th>#</th>
                     <th>First Name</th>
                     <th>Last Name</th>
@@ -60,11 +74,17 @@ if (isset($_POST['submit'])) {
                     <th>Alt #</th>
                     <th>Interests</th>
                     <th>Skills</th>
+                    <?php } ?> 
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($result as $row) { ?>
                 <tr>
+                    <?php if (isset($_POST['fields'])) {
+                        foreach ($fields as $field) { ?>
+                            <td><?php echo escape($row["$field"]); ?></td>
+                    <?php }
+                        } else { ?> 
                     <td><?php echo escape($row["host_id"]); ?></td>
                     <td><?php echo escape($row["first_name"]); ?></td>
                     <td><?php echo escape($row["last_name"]); ?></td>
@@ -78,6 +98,7 @@ if (isset($_POST['submit'])) {
                     <td><?php echo escape($row["alt_phone"]); ?></td>
                     <td><?php echo escape($row["interests"]); ?></td>
                     <td><?php echo escape($row["skills"]); ?></td>
+                    <?php } ?> 
                 </tr>
                 <?php } ?>
             </tbody>
@@ -87,9 +108,24 @@ if (isset($_POST['submit'])) {
     <?php }
 } ?>
 
-<h2>Find user based on first name</h2>
+<h2>Find station member information based on first name</h2>
 
 <form method="post">
+<label>Select fields</label><br>
+    
+    <input type='checkbox' name='fields[]' value='first_name'>First Name<br>
+    <input type='checkbox' name='fields[]' value='last_name'>Last Name<br>
+    <input type='checkbox' name='fields[]' value='province'>Province<br>
+    <input type='checkbox' name='fields[]' value='postalcode'>Postal Code<br>
+    <input type='checkbox' name='fields[]' value='pronouns'>Pronouns<br>
+    <input type='checkbox' name='fields[]' value='address'>Address<br>
+    <input type='checkbox' name='fields[]' value='city'>City<br>
+    <input type='checkbox' name='fields[]' value='email'>Email<br>
+    <input type='checkbox' name='fields[]' value='primary_phone'>Primary Phone<br>
+    <input type='checkbox' name='fields[]' value='alt_phone'>Alternate Phone<br>
+    <input type='checkbox' name='fields[]' value='interests'>Interests<br>
+    <input type='checkbox' name='fields[]' value='skills'>Skills<br>
+
     <label for="first_name">First Name</label>
     <input type="text" id="first_name" name="first_name">
 
