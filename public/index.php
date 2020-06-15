@@ -25,7 +25,7 @@
         <br />
         <a href="projectstationmembers.php"><strong>Find Station Member Information</strong></a> - Find specific types of information about station members
         <br />
-        <a href="no-of-members.php"><strong>Number of Station Members</strong></a> - Find number of members in a given collective
+        <a href="no-of-members.php"><strong>Number of Station Members</strong></a> - Get current number of station members
         
   </div>
 
