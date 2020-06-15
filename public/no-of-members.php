@@ -31,7 +31,13 @@ try {
 
 <?php require "templates/header.php"; ?>
 
-<table>
+<style>
+    table {
+        margin: 20px;
+    }
+</style>
+
+<table class="Table">
     <thead>
         <tr>
             <th>Number of Member(s):</th>
