@@ -14,7 +14,7 @@ try {
     $connection = new PDO($dsn, $username, $password, $options);
 
     // SQL read statement
-    $sql = "SELECT *
+    $sql = "SELECT COUNT(*) AS no_of_members
             FROM station_members";
 
     // Prepare, bind and execute SQL statement
@@ -34,13 +34,13 @@ try {
 <table>
     <thead>
         <tr>
-            <th>Number of Members:</th>
+            <th>Number of Member(s):</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($result as $row): ?>
         <tr>
-            <td><?php echo escape($row["first_name"]); ?></td>
+            <td><?php echo escape($row["no_of_members"]); ?></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
