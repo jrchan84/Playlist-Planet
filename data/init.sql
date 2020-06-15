@@ -334,16 +334,16 @@ INSERT INTO station_members VALUES (7, 'Charles', 'DeSantos', 'BC', 'V6T1J5', 'H
 INSERT INTO station_members VALUES (8, 'Anna', 'Johnston', 'BC', 'V6T1J5', 'She/Her/Hers', '8595 W 41 Ave', 'Vancouver', 'annaj1234@gmail.com', '7781234567', '', '', '');
 INSERT INTO station_members VALUES (9, 'Taylor', 'Corrico', 'BC', 'V6T1J5', 'She/Her/Hers', '4513 E 43 Ave', 'Vancouver', 'taylor4556@gmail.com', '7781234567', '', '', '');
 INSERT INTO station_members VALUES (10, 'Ming', 'Xi', 'BC', 'V6T1J5', 'He/Him/His', '4552 Boulevard', 'Vancouver', 'mingxi452@gmail.com', '7781234567', '', '', '');
-INSERT INTO station_members VALUES (21, 'Ferris', 'Lee', 'BC', 'V6Y3Z6', 'He/Him/His', '8600 Jones Rd.', 'Richmond', 'flee0229@students.cs.ubc.ca', '60474195498', '', '', '');
-INSERT INTO station_members VALUES (22, 'Alan', 'Soros', 'BC', 'V6X3Z5', 'He/Him/His', '123 Street', 'Vancouver', 'sorosa@gmail.com', '6041235719', '', '', '');
-INSERT INTO station_members VALUES (23, 'Mary', 'Johnson', 'BC', 'V6Y1J5', 'She/Her/Hers', '456 Boulevard', 'Vancouver', 'maryj3727@gmail.com', '7781715787', '', '', '');
-INSERT INTO station_members VALUES (24, 'Jane', 'McSmith', 'BC', 'V6X1J5', 'She/Her/Hers', '2345 E 45 Ave', 'Vancouver', 'mcsmithje@alumni.com', '7781234567', '', '', '');
-INSERT INTO station_members VALUES (25,'Bill', 'Zhang', 'BC', 'V6T1J5', 'He/Him/His', '1234 E 41 Ave', 'Vancouver', 'billzhang0507@ubc.ca', '7781278495', '7785648157', '', '');
-INSERT INTO station_members VALUES (26, 'Francois', 'Alain', 'BC', 'V6T1J5', 'They/Them', '455 Street', 'Vancouver', 'falain23@ubc.ca', '7781549877', '', '', '');
-INSERT INTO station_members VALUES (27, 'Michael', 'DeSantos', 'BC', 'V6T2J7', 'He/Him/His', '798 Street', 'Vancouver', 'michdesantos@ubc.ca', '7781245739', '', '', '');
-INSERT INTO station_members VALUES (28, 'Anna', 'Corrian', 'BC', 'V6T1J5', 'She/Her/Hers', '8595 W 41 Ave', 'Vancouver', 'annncorr1220@gmail.com', '7781235468', '', '', '');
-INSERT INTO station_members VALUES (29, 'Taylor', 'Bennett', 'BC', 'V6X1J5', 'She/Her/Hers', '4513 E 43 Ave', 'Vancouver', 'taylorbennett21@gmail.com', '7789492122', '', '', '');
-INSERT INTO station_members VALUES (30, 'Xi', 'Yuan', 'BC', 'V6W1J5', 'She/Her/Hers', '4552 Boulevard', 'Vancouver', 'xiyuan0407@gmail.com', '7781454567', '', '', '');
+INSERT INTO station_members VALUES (11, 'Ferris', 'Lee', 'BC', 'V6Y3Z6', 'He/Him/His', '8600 Jones Rd.', 'Richmond', 'flee0229@students.cs.ubc.ca', '60474195498', '', '', '');
+INSERT INTO station_members VALUES (12, 'Alan', 'Soros', 'BC', 'V6X3Z5', 'He/Him/His', '123 Street', 'Vancouver', 'sorosa@gmail.com', '6041235719', '', '', '');
+INSERT INTO station_members VALUES (13, 'Mary', 'Johnson', 'BC', 'V6Y1J5', 'She/Her/Hers', '456 Boulevard', 'Vancouver', 'maryj3727@gmail.com', '7781715787', '', '', '');
+INSERT INTO station_members VALUES (14, 'Jane', 'McSmith', 'BC', 'V6X1J5', 'She/Her/Hers', '2345 E 45 Ave', 'Vancouver', 'mcsmithje@alumni.com', '7781234567', '', '', '');
+INSERT INTO station_members VALUES (15,'Bill', 'Zhang', 'BC', 'V6T1J5', 'He/Him/His', '1234 E 41 Ave', 'Vancouver', 'billzhang0507@ubc.ca', '7781278495', '7785648157', '', '');
+INSERT INTO station_members VALUES (16, 'Francois', 'Alain', 'BC', 'V6T1J5', 'They/Them', '455 Street', 'Vancouver', 'falain23@ubc.ca', '7781549877', '', '', '');
+INSERT INTO station_members VALUES (17, 'Michael', 'DeSantos', 'BC', 'V6T2J7', 'He/Him/His', '798 Street', 'Vancouver', 'michdesantos@ubc.ca', '7781245739', '', '', '');
+INSERT INTO station_members VALUES (18, 'Anna', 'Corrian', 'BC', 'V6T1J5', 'She/Her/Hers', '8595 W 41 Ave', 'Vancouver', 'annncorr1220@gmail.com', '7781235468', '', '', '');
+INSERT INTO station_members VALUES (19, 'Taylor', 'Bennett', 'BC', 'V6X1J5', 'She/Her/Hers', '4513 E 43 Ave', 'Vancouver', 'taylorbennett21@gmail.com', '7789492122', '', '', '');
+INSERT INTO station_members VALUES (20, 'Xi', 'Yuan', 'BC', 'V6W1J5', 'She/Her/Hers', '4552 Boulevard', 'Vancouver', 'xiyuan0407@gmail.com', '7781454567', '', '', '');
 
 
 INSERT INTO content_creators VALUES (1, 1, 1);
@@ -492,11 +492,11 @@ INSERT INTO members_are_part_of_collectives VALUES (2, 12);
 INSERT INTO members_are_part_of_collectives VALUES (3, 13);
 INSERT INTO members_are_part_of_collectives VALUES (4, 14);
 INSERT INTO members_are_part_of_collectives VALUES (5, 15);
-INSERT INTO members_are_part_of_collectives VALUES (21, 11);
-INSERT INTO members_are_part_of_collectives VALUES (22, 12);
-INSERT INTO members_are_part_of_collectives VALUES (23, 13);
-INSERT INTO members_are_part_of_collectives VALUES (24, 13);
-INSERT INTO members_are_part_of_collectives VALUES (25, 15);
+INSERT INTO members_are_part_of_collectives VALUES (19, 11);
+INSERT INTO members_are_part_of_collectives VALUES (18, 12);
+INSERT INTO members_are_part_of_collectives VALUES (16, 13);
+INSERT INTO members_are_part_of_collectives VALUES (15, 13);
+INSERT INTO members_are_part_of_collectives VALUES (14, 15);
 
 
 
