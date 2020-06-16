@@ -209,7 +209,7 @@ CREATE TABLE members_are_part_of_collectives(
     FOREIGN KEY (stn_member_id) REFERENCES station_members(host_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
-    FOREIGN KEY (collective_id) REFERENCEs station_members(host_id)
+    FOREIGN KEY (collective_id) REFERENCEs collectives(host_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
