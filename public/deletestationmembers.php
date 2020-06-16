@@ -97,6 +97,8 @@ if (isset($_GET["host_id"]) && $success)
     </tbody>
 </table>
 
-<a href="index.php">Back to home</a>
+<div style="padding:20px; font-weight:bold" class="Footer-Overflow">
+     <a href="index.php">Back to main page</a>
+</div>
 
 <?php require "templates/footer.php"; ?>

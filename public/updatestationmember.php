@@ -94,6 +94,8 @@ if (isset($_GET['host_id'])) {
     <input type="submit" name="submit" value="Submit">
 </form>
 
-<a href="index.php">Back to home</a>
+<div style="padding:20px; font-weight:bold" class="Footer-Overflow">
+     <a href="index.php">Back to main page</a>
+</div>
 
 <?php require "templates/footer.php"; ?>

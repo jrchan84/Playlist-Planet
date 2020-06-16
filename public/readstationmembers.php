@@ -122,7 +122,7 @@ if (isset($_POST['submit'])) {
     
     <form method="post">
         
-        <div class="Input">
+        <div class="Input" style="text-align:left !important; padding: 25px !important">
             <h2>Find station member information based on first name</h2>
             <label style="font-weight: bold; font-size:20px; text-decoration: underline">Select fields to view</label><br>
                 
@@ -149,12 +149,12 @@ if (isset($_POST['submit'])) {
 
     <div class="Footer">
             <a href="index.php"> Back to main page</a>
-        </div>
+    </div>
 
-        <div class="Credits">
-            Made by Justin Chan, Patrick Lee, Carol Zhang | 
-            <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
-         </div>
+    <div class="Credits">
+        Made by Justin Chan, Patrick Lee, Carol Zhang | 
+        <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
+    </div>
 </div>
 
 <?php include "templates/footer.php"; ?>

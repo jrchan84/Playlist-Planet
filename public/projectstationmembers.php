@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
 <div class="Main">
 
     <div class="Results">
-
+    <hr />
         <?php
         if (isset($_POST['submit']) and isset($_POST['fields'])) {
             // Check to see if there is a non-empty set of results
@@ -84,12 +84,13 @@ if (isset($_POST['submit'])) {
         
     </div>
 
-    <div class="Input">
+    <div class="Input" style="text-align:left !important; padding: 25px !important">
 
         <h2>Find specific station member information</h2>
         
         <form method="post">
-            <label>Select fields</label><br>
+            <label style="font-weight: bold; font-size:20px; text-decoration: underline">Select fields</label><br>
+            <br/>
             
             <input type='checkbox' name='fields[]' value='first_name'>First Name<br>
             <input type='checkbox' name='fields[]' value='last_name'>Last Name<br>
@@ -103,6 +104,7 @@ if (isset($_POST['submit'])) {
             <input type='checkbox' name='fields[]' value='alt_phone'>Alternate Phone<br>
             <input type='checkbox' name='fields[]' value='interests'>Interests<br>
             <input type='checkbox' name='fields[]' value='skills'>Skills<br>
+            <br/>
         
             <input type="submit" name="submit" value="View Results">
         </form>
@@ -110,7 +112,9 @@ if (isset($_POST['submit'])) {
     </div>
     
     
-    <a href="index.php">Back to main page</a>
+    <div style="padding:20px; font-weight:bold" class="Footer-Overflow">
+        <a href="index.php">Back to main page</a>
+    </div>
 </div>
 
 
