@@ -73,6 +73,7 @@ input[type="text"] {
   grid-area: footer;
   position: absolute;
   left: 10px;
+  color: white;
 }
 
 .Credits {
