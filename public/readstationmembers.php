@@ -149,12 +149,12 @@ if (isset($_POST['submit'])) {
 
     <div class="Footer">
             <a href="index.php"> Back to main page</a>
-    </div>
+        </div>
 
-    <div class="Credits">
-        Made by Justin Chan, Patrick Lee, Carol Zhang | 
-        <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
-    </div>
+        <div class="Credits">
+            Made by Justin Chan, Patrick Lee, Carol Zhang | 
+            <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
+         </div>
 </div>
 
 <?php include "templates/footer.php"; ?>
