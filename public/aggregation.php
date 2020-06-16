@@ -94,7 +94,7 @@ try {
                 }
             ?> 
             <?php echo escape($result[0]['no_of_members']); ?> 
-            member(s) of the 
+            member(s) in the 
             <?php echo escape($_POST['collective_name']); ?>.
         </div>
     
@@ -102,7 +102,7 @@ try {
             <div class="Result">
             <hr/>
             <h2>Search Results</h2>
-                There are 0 members of the <?php echo escape($_POST['collective_name']); ?>.
+                There are 0 members in the <?php echo escape($_POST['collective_name']); ?>.
             </div>
 
         <?php }
