@@ -41,50 +41,73 @@ if (isset($_POST['submit'])) {
 
 <?php require "templates/header.php"; ?>
 
-<?php
-if (isset($_POST['submit'])) {
-    // Check to see if there is a non-empty set of results
-    if ($result && $statement->rowCount() > 0) { ?>
-        <h2>Search Results</h2>
+<head>
+<link rel="stylesheet" href="css/subpage.css" />
+</head>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Artist ID</th>
-                    <th>Artist Name(s)</th>
-                    <th>Media ID</th>
-                    <th>Album Name</th>
-                    <th>Genre</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($result as $row) { ?>
-                <tr>
-                    <td><?php echo escape($row["artist_id"]); ?></td>
-                    <td><?php echo escape($row["name"]); ?></td>
-                    <td><?php echo escape($row["media_id"]); ?></td>
-                    <td><?php echo escape($row["album"]); ?></td>
-                    <td><?php echo escape($row["genre"]); ?></td>
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+<div class="Main">
+    <?php
+    if (isset($_POST['submit'])) {
+        // Check to see if there is a non-empty set of results
+        if ($result && $statement->rowCount() > 0) { ?>
+        
+        <div class="Result">
+            <hr/>
+            <h2>Search Results</h2>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>Artist ID</th>
+                        <th>Artist Name(s)</th>
+                        <th>Media ID</th>
+                        <th>Album Name</th>
+                        <th>Genre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($result as $row) { ?>
+                    <tr>
+                        <td><?php echo escape($row["artist_id"]); ?></td>
+                        <td><?php echo escape($row["name"]); ?></td>
+                        <td><?php echo escape($row["media_id"]); ?></td>
+                        <td><?php echo escape($row["album"]); ?></td>
+                        <td><?php echo escape($row["genre"]); ?></td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    
+        <?php } else { ?>
 
+            <div class="Result">
+                No results found for <?php echo escape($_POST['album_name']); ?>.
+            </div>
+
+        <?php }
+    } ?>
+    
+    <div class="Input">
+        <h2>Find Album Artist</h2>
+        
+        <form method="post">
+            <label for="album_name">Album Name: </label>
+            <input type="text" id="album_name" name="album_name">
+        
+            <input type="submit" name="submit" value="View Results">
+        </form>
+    </div>
+
+    <div class="Footer">
         <a href="index.php"> Back to main page</a>
-    <?php } else { ?>
-        No results found for <?php echo escape($_POST['album_name']); ?>.
-    <?php }
-} ?>
+    </div>
 
-<h2>Find Album Artist</h2>
+    <div class="Credits">
+        Made by Justin Chan, Patrick Lee, Carol Zhang | 
+        <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
+    </div>
+</div>
 
-<form method="post">
-    <label for="album_name">Album Name</label>
-    <input type="text" id="album_name" name="album_name">
-
-    <input type="submit" name="submit" value="View Results">
-</form>
-
-<a href="index.php"> Back to main page</a>
 
 <?php include "templates/footer.php"; ?>

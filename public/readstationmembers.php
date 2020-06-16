@@ -46,92 +46,115 @@ if (isset($_POST['submit'])) {
 
 <?php require "templates/header.php"; ?>
 
-<?php
-if (isset($_POST['submit'])) {
-    // Check to see if there is a non-empty set of results
-    if ($result && $statement->rowCount() > 0) { ?>
-        <h2>Search Results</h2>
+<head>
+    <link rel="stylesheet" href="css/subpage.css" />
+</head>
 
-        <table>
-            <thead>
-                <tr>
-                    <?php if (isset($_POST['fields'])) {
-                        $fields = $_POST['fields'];
-                        foreach ($fields as $field) { ?>
-                            <th><?php echo $field?></th>
-                    <?php }
-                        } else { ?>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Province</th>
-                    <th>Postal Code</th>
-                    <th>Pronouns</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>E-mail Address</th>
-                    <th>Primary #</th>
-                    <th>Alt #</th>
-                    <th>Interests</th>
-                    <th>Skills</th>
-                    <?php } ?> 
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($result as $row) { ?>
-                <tr>
-                    <?php if (isset($_POST['fields'])) {
-                        foreach ($fields as $field) { ?>
-                            <td><?php echo escape($row["$field"]); ?></td>
-                    <?php }
-                        } else { ?> 
-                    <td><?php echo escape($row["host_id"]); ?></td>
-                    <td><?php echo escape($row["first_name"]); ?></td>
-                    <td><?php echo escape($row["last_name"]); ?></td>
-                    <td><?php echo escape($row["province"]); ?></td>
-                    <td><?php echo escape($row["postalcode"]); ?></td>
-                    <td><?php echo escape($row["pronouns"]); ?></td>
-                    <td><?php echo escape($row["address"]); ?></td>
-                    <td><?php echo escape($row["city"]); ?></td>
-                    <td><?php echo escape($row["email"]); ?></td>
-                    <td><?php echo escape($row["primary_phone"]); ?></td>
-                    <td><?php echo escape($row["alt_phone"]); ?></td>
-                    <td><?php echo escape($row["interests"]); ?></td>
-                    <td><?php echo escape($row["skills"]); ?></td>
-                    <?php } ?> 
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    <?php } else { ?>
-        No results found for <?php echo escape($_POST['first_name']); ?>.
-    <?php }
-} ?>
+<div class="Main">
+    <?php
+    if (isset($_POST['submit'])) {
+        // Check to see if there is a non-empty set of results
+        if ($result && $statement->rowCount() > 0) { ?>
 
-<h2>Find station member information based on first name</h2>
-
-<form method="post">
-<label>Select fields</label><br>
+        <div class="Result">
+            <hr />
+            <h2>Search Results</h2>
     
-    <input type='checkbox' name='fields[]' value='first_name'>First Name<br>
-    <input type='checkbox' name='fields[]' value='last_name'>Last Name<br>
-    <input type='checkbox' name='fields[]' value='province'>Province<br>
-    <input type='checkbox' name='fields[]' value='postalcode'>Postal Code<br>
-    <input type='checkbox' name='fields[]' value='pronouns'>Pronouns<br>
-    <input type='checkbox' name='fields[]' value='address'>Address<br>
-    <input type='checkbox' name='fields[]' value='city'>City<br>
-    <input type='checkbox' name='fields[]' value='email'>Email<br>
-    <input type='checkbox' name='fields[]' value='primary_phone'>Primary Phone<br>
-    <input type='checkbox' name='fields[]' value='alt_phone'>Alternate Phone<br>
-    <input type='checkbox' name='fields[]' value='interests'>Interests<br>
-    <input type='checkbox' name='fields[]' value='skills'>Skills<br>
+            <table>
+                <thead>
+                    <tr>
+                        <?php if (isset($_POST['fields'])) {
+                            $fields = $_POST['fields'];
+                            foreach ($fields as $field) { ?>
+                                <th><?php echo $field?></th>
+                        <?php }
+                            } else { ?>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Province</th>
+                        <th>Postal Code</th>
+                        <th>Pronouns</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>E-mail Address</th>
+                        <th>Primary #</th>
+                        <th>Alt #</th>
+                        <th>Interests</th>
+                        <th>Skills</th>
+                        <?php } ?> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($result as $row) { ?>
+                    <tr>
+                        <?php if (isset($_POST['fields'])) {
+                            foreach ($fields as $field) { ?>
+                                <td><?php echo escape($row["$field"]); ?></td>
+                        <?php }
+                            } else { ?> 
+                        <td><?php echo escape($row["host_id"]); ?></td>
+                        <td><?php echo escape($row["first_name"]); ?></td>
+                        <td><?php echo escape($row["last_name"]); ?></td>
+                        <td><?php echo escape($row["province"]); ?></td>
+                        <td><?php echo escape($row["postalcode"]); ?></td>
+                        <td><?php echo escape($row["pronouns"]); ?></td>
+                        <td><?php echo escape($row["address"]); ?></td>
+                        <td><?php echo escape($row["city"]); ?></td>
+                        <td><?php echo escape($row["email"]); ?></td>
+                        <td><?php echo escape($row["primary_phone"]); ?></td>
+                        <td><?php echo escape($row["alt_phone"]); ?></td>
+                        <td><?php echo escape($row["interests"]); ?></td>
+                        <td><?php echo escape($row["skills"]); ?></td>
+                        <?php } ?> 
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <?php } else { ?>
+            <div class="Result">
+                No results found for <?php echo escape($_POST['first_name']); ?>.
+            </div>
+        <?php }
+    } ?>
+    
+    
+    <form method="post">
+        
+        <div class="Input" style="text-align:left !important; padding: 25px !important">
+            <h2>Find station member information based on first name</h2>
+            <label style="font-weight: bold; font-size:20px; text-decoration: underline">Select fields to view</label><br>
+                
+                    <input type='checkbox' name='fields[]' value='first_name'>First Name<br>
+                    <input type='checkbox' name='fields[]' value='last_name'>Last Name<br>
+                    <input type='checkbox' name='fields[]' value='province'>Province<br>
+                    <input type='checkbox' name='fields[]' value='postalcode'>Postal Code<br>
+                    <input type='checkbox' name='fields[]' value='pronouns'>Pronouns<br>
+                    <input type='checkbox' name='fields[]' value='address'>Address<br>
+                    <input type='checkbox' name='fields[]' value='city'>City<br>
+                    <input type='checkbox' name='fields[]' value='email'>Email<br>
+                    <input type='checkbox' name='fields[]' value='primary_phone'>Primary Phone<br>
+                    <input type='checkbox' name='fields[]' value='alt_phone'>Alternate Phone<br>
+                    <input type='checkbox' name='fields[]' value='interests'>Interests<br>
+                    <input type='checkbox' name='fields[]' value='skills'>Skills<br>
+                <br/>
+            
+                <input placeholder="Search by first name" type="text" id="first_name" name="first_name">
+                <input type="submit" name="submit" value="View Results">
+        </div>
 
-    <label for="first_name">First Name</label>
-    <input type="text" id="first_name" name="first_name">
+    </form>
 
-    <input type="submit" name="submit" value="View Results">
-</form>
 
-<a href="index.php"> Back to main page</a>
+    <div class="Footer">
+            <a href="index.php"> Back to main page</a>
+    </div>
+
+    <div class="Credits">
+        Made by Justin Chan, Patrick Lee, Carol Zhang | 
+        <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
+    </div>
+</div>
 
 <?php include "templates/footer.php"; ?>

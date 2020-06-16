@@ -21,13 +21,14 @@ body {
     max-width: 1600px;
     background-color: #212121;
     font-family: "Roboto", sans-serif;
+    color: white;
   }
 
  .Header {
   grid-column: header;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 30px;
   color: #6f99ba;
   padding-top: 150px;
   }
@@ -67,4 +68,8 @@ body {
     bottom: 0px;
     text-align: center;
     color: white;
+  }
+
+  .Table {
+    margin-left: 100px;
   }
