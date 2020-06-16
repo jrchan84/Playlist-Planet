@@ -149,3 +149,23 @@ select {
 a {
     font-weight: bold;
 }
+
+a.Link:link {
+  color: #6f99ba;
+  text-decoration: none;
+}
+
+a.Link:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a.Link:hover {
+  color: #f38eb0;
+  text-decoration: none;
+}
+
+a.Link:active {
+  color: white;
+  text-decoration: none;
+}
