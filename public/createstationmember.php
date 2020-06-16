@@ -47,59 +47,67 @@
 
     <?php require "templates/header.php"; ?>
 
-    <?php 
-        // Displays station member first name is user was sucessfully created.
-        if (isset($_POST['submit']) && $statement) {
-            echo $_POST['first_name'];
-            echo " successfully added.";
-        } ?>
+    <head>
+    <link rel="stylesheet" href="css/subpage.css" />
+    </head>
 
-    <h2> Add a station member </h2>
+    <div class="Main">
+        <?php 
+            // Displays station member first name is user was sucessfully created.
+            if (isset($_POST['submit']) && $statement) {
+                echo $_POST['first_name'];
+                echo " successfully added.";
+            } ?>
 
+    <div class="Form">  
+        
+        <h2> Add a station member </h2>
+    
     <!-- Input form for creating a new station member -->
-    <form method="post">
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" id="first_name">
+        <form method="post">
+            <div class="form-group">
+                <input placeholder="First Name" type="text" name="first_name" id="first_name" class="input-control">
+                    <input placeholder="Last Name" type="text" name="last_name" id="last_name" class="input-control">
+                        <input placeholder="Pronouns" type="text" name="pronouns" id="pronouns" class="input-control">
+            </div>
+            
+            <div class="form-group">
+                <input placeholder="Address" type="text" name="address" id="address" class="input-control">
+                    <input placeholder="City" type="text" name="city" id="city" class="input-control" style="flex: 6">
+                        <input placeholder="Province" type="text" name="province" id="province" class="input-control" style="flex: 1">
+                            <input placeholder="Postal Code" type="text" name="postalcode" id="postalcode" class="input-control" style="flex: 2">
+            </div>
+            
+            <div class="form-group">
+                <input placeholder="Email Address" type="text" name="email" id="email" class="input-control" style="flex: 6">
+                    <input placeholder="Primary Phone" type="text" name="primary_phone" id="primary_phone" class="input-control" style="flex: 3">
+                        <input placeholder="Alternate Phone" type="text" name="alt_phone" id="alt_phone" class="input-control" style="flex: 3">
+            </div>
 
-        <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" id="last_name">
+            <div class="form-group">
+                <input placeholder="Interests" type="text" name="interests" id="interests" class="input-control">
+            </div>
 
-        <label for="province">Province</label>
-        <input type="text" name="province" id="province">
+            <div class="form-group">
+                <input placeholder="Skills" type="text" name="skills" id="skills" class="input-control">
+            </div>
+        
+            <input type="submit" name="submit" value="Submit">
 
-        <label for="postalcode">Postal Code</label>
-        <input type="text" name="postalcode" id="postalcode">
+        </form>
 
-        <label for="pronouns">Pronouns</label>
-        <input type="text" name="pronouns" id="pronouns">
+    </div>
 
-        <label for="address">Address </label>
-        <input type="text" name="address" id="address">
+        <div class="Footer">
+            <a href="index.php"> Back to main page</a>
+        </div>
 
-        <label for="city">City</label>
-        <input type="text" name="city" id="city">
+        <div class="Credits">
+            Made by Justin Chan, Patrick Lee, Carol Zhang | 
+            <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
+         </div>
 
-        <label for="email">Email Address</label>
-        <input type="text" name="email" id="email">
+    </div>  
 
-        <label for="primary_phone">Primary Phone Number</label>
-        <input type="text" name="primary_phone" id="primary_phone">
-
-        <label for="alt_phone">Alternative Phone Number</label>
-        <input type="text" name="alt_phone" id="alt_phone">
-
-        <label for="interests">Interests</label>
-        <input type="text" name="interests" id="interests">
-
-        <label for="skills">Skills</label>
-        <input type="text" name="skills" id="skills">
-
-        </br>
-        </br>
-
-        <input type="submit" name="submit" value="Submit">
-    </form>
-
-    <a href="index.php"> Back to main page</a>
 
 <?php include "templates/footer.php"; ?>

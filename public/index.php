@@ -21,12 +21,15 @@
         <br/>
         <a href="deletestationmembers.php"><strong>Remove Station Members</strong></a> - Remove station member information
         <br/>
-        <a href="join.php"><strong>Find Album Artist</strong></a>
+        <a href="findalbumartist.php"><strong>Find Album Artist</strong></a> - Find album artist information
         <br />
         <a href="projectstationmembers.php"><strong>Find Station Member Information</strong></a> - Find specific types of information about station members
+        <br />
+        <a href="no-of-members.php"><strong>Number of Station Members</strong></a> - Get current number of station members
+        
   </div>
 
-  <div class="Footer">
+  <div class="Credits">
     Made by Justin Chan, Patrick Lee, Carol Zhang | 
     <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
   </div>
