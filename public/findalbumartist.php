@@ -52,6 +52,7 @@ if (isset($_POST['submit'])) {
         if ($result && $statement->rowCount() > 0) { ?>
         
         <div class="Result">
+            <hr/>
             <h2>Search Results</h2>
     
             <table>
