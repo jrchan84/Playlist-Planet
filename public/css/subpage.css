@@ -3,6 +3,18 @@ body {
   padding: 0px !important;
 }
 
+.Main-Overflow {
+  margin: auto;
+  text-align: center;
+  background-color: #212121;
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+
+.Input-Overflow {
+    margin-top: 0px;
+}
+
 .Main {
   margin: auto;
   text-align: center;
@@ -34,13 +46,22 @@ body {
   margin: 10px;
 }
 
-table {
-    border-collapse: collapse;
+.Form {
+  grid-area: result;
+  border-radius: 5px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
-table, th, td{
-  margin-right: auto;
-  margin-left: auto;
+table {
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  margin-right: 20px;
+  margin-left: 20px;
   border: 1px solid;
   padding: 10px;
 }
@@ -61,7 +82,8 @@ input:hover[type="submit"] {
   background-color: #f38eb0;
 }
 
-input[type="text"] {
+input[type="text"],
+select {
   border: none;
   padding: 8px 7px;
   text-decoration: none;
@@ -73,12 +95,52 @@ input[type="text"] {
   grid-area: footer;
   position: absolute;
   left: 10px;
+  bottom: 10px;
   color: white;
+  font-weight: bold;
 }
 
 .Credits {
-    grid-row: footer;
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
+  grid-row: footer;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.form-group label {
+  flex: none;
+  display: block;
+  width: 125px;
+  font-weight: bold;
+  font-size: 1em;
+}
+.form-group label.right-inline {
+  text-align: right;
+  padding-right: 8px;
+  padding-left: 10px;
+  width: auto;
+}
+
+.form-group .input-control {
+  flex: 1 1 auto;
+  display: block;
+  margin-bottom: 10px;
+  margin-right: 8px;
+  margin-top: -4px;
+}
+
+.Checkboxes {
+  padding: 20px;
+  display: inline;
+  text-align: left !important;
+}
+
+a {
+    font-weight: bold;
 }
