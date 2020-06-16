@@ -55,6 +55,8 @@ if (isset($_POST['submit'])) {
     </div>
 
     <div class="Result">
+        
+        <hr />
         <?php
             // Displays host_id of host who has hosted every episode if found
             if (isset($_POST['submit']) && $result) {
