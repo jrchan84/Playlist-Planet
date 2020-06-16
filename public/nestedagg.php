@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
         $connection = new PDO($dsn, $username, $password, $options);
 
         // SQL statement
-        $sql = "SELECT episode_id, COUNT(show_id)
+        $sql = "SELECT episode_id, COUNT(show_id) AS count
                 FROM show_has_episode
                 GROUP BY episode_id
                 HAVING COUNT(show_id) > :num";
@@ -49,11 +49,14 @@ if (isset($_POST['submit'])) {
         echo "Episodes ";
         foreach($result as $row){
             print $row->episode_id;
+            print " (";
+            print $row->count;
+            print ")";
             print ", ";
         }
-        echo " are in $num shows";
+        echo " are in $num or more shows.";
     } else if (isset($_POST['submit'])) {
-        echo "No episodes are in $num shows";
+        echo "No episodes are in $num or more shows";
     }
 ?>
 
