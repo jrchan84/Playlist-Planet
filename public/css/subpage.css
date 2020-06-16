@@ -139,7 +139,7 @@ select {
 .Checkboxes {
   padding: 20px;
   display: inline;
-  text-align: left !important;
+  /* text-align: left !important; */
 }
 
 a {

@@ -39,62 +39,79 @@ if (isset($_POST['submit'])) {
 
 <?php require "templates/header.php"; ?>
 
-<?php
-if (isset($_POST['submit']) and isset($_POST['fields'])) {
-    // Check to see if there is a non-empty set of results
-    if ($result && $statement->rowCount() > 0) { ?>
-        <?php // Get posted value
-        $fields = $_POST['fields'];
-        ?>
+<head>
+    <link rel="stylesheet" href="css/subpage.css" />
+</head>
+
+<div class="Main">
+
+    <div class="Results">
+
+        <?php
+        if (isset($_POST['submit']) and isset($_POST['fields'])) {
+            // Check to see if there is a non-empty set of results
+            if ($result && $statement->rowCount() > 0) { ?>
+                <?php // Get posted value
+                $fields = $_POST['fields'];
+                ?>
+                
+                <h2>Information Results</h2>
         
-        <h2>Information Results</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <?php foreach ($fields as $field) { ?>
+                                <th><?php echo $field?></th>
+                            <?php } ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($result as $row) { ?>
+                        <tr>
+                            <?php foreach ($fields as $field) { ?>
+                                <td><?php echo escape($row["$field"]); ?></td>
+                            <?php } ?>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            <?php } else { ?>
+                Could not display the selected fields.
+            <?php }
+        } else { ?>
+            No fields were selected.
+        <?php } ?> 
+        
+    </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <?php foreach ($fields as $field) { ?>
-                        <th><?php echo $field?></th>
-                    <?php } ?>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($result as $row) { ?>
-                <tr>
-                    <?php foreach ($fields as $field) { ?>
-                        <td><?php echo escape($row["$field"]); ?></td>
-                    <?php } ?>
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    <?php } else { ?>
-        Could not display the selected fields.
-    <?php }
-} else { ?>
-    No fields were selected.
-<?php } ?> 
+    <div class="Input">
 
-<h2>Find specific station member information</h2>
+        <h2>Find specific station member information</h2>
+        
+        <form method="post">
+            <label>Select fields</label><br>
+            
+            <input type='checkbox' name='fields[]' value='first_name'>First Name<br>
+            <input type='checkbox' name='fields[]' value='last_name'>Last Name<br>
+            <input type='checkbox' name='fields[]' value='province'>Province<br>
+            <input type='checkbox' name='fields[]' value='postalcode'>Postal Code<br>
+            <input type='checkbox' name='fields[]' value='pronouns'>Pronouns<br>
+            <input type='checkbox' name='fields[]' value='address'>Address<br>
+            <input type='checkbox' name='fields[]' value='city'>City<br>
+            <input type='checkbox' name='fields[]' value='email'>Email<br>
+            <input type='checkbox' name='fields[]' value='primary_phone'>Primary Phone<br>
+            <input type='checkbox' name='fields[]' value='alt_phone'>Alternate Phone<br>
+            <input type='checkbox' name='fields[]' value='interests'>Interests<br>
+            <input type='checkbox' name='fields[]' value='skills'>Skills<br>
+        
+            <input type="submit" name="submit" value="View Results">
+        </form>
 
-<form method="post">
-    <label>Select fields</label><br>
+    </div>
     
-    <input type='checkbox' name='fields[]' value='first_name'>First Name<br>
-    <input type='checkbox' name='fields[]' value='last_name'>Last Name<br>
-    <input type='checkbox' name='fields[]' value='province'>Province<br>
-    <input type='checkbox' name='fields[]' value='postalcode'>Postal Code<br>
-    <input type='checkbox' name='fields[]' value='pronouns'>Pronouns<br>
-    <input type='checkbox' name='fields[]' value='address'>Address<br>
-    <input type='checkbox' name='fields[]' value='city'>City<br>
-    <input type='checkbox' name='fields[]' value='email'>Email<br>
-    <input type='checkbox' name='fields[]' value='primary_phone'>Primary Phone<br>
-    <input type='checkbox' name='fields[]' value='alt_phone'>Alternate Phone<br>
-    <input type='checkbox' name='fields[]' value='interests'>Interests<br>
-    <input type='checkbox' name='fields[]' value='skills'>Skills<br>
+    
+    <a href="index.php">Back to main page</a>
+</div>
 
-    <input type="submit" name="submit" value="View Results">
-</form>
-
-<a href="index.php">Back to main page</a>
 
 <?php include "templates/footer.php"; ?>
