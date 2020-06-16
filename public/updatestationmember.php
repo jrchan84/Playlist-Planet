@@ -78,24 +78,42 @@ if (isset($_GET['host_id'])) {
 
 <?php require "templates/header.php"; ?>
 
-<?php if (isset($_POST['submit']) && $statement) : ?>
-  <?php echo escape($_POST['first_name']); ?> successfully updated.
-<?php endif; ?>
+<head>
+    <link rel="stylesheet" href="css/subpage.css" />
+</head>
 
-<h2>Edit a station member's information</h2>
+<div class="Main">
 
-<form method="post">
-    <?php foreach ($user as $key => $value) : ?>
-      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-      <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" 
-            <?php echo ($key === 'id' ? 'readonly' : null); ?>>
-    <?php endforeach; ?>
+  <div class="Input">
+    <?php if (isset($_POST['submit']) && $statement) : ?>
+      <?php echo escape($_POST['first_name']); ?> successfully updated.
+    <?php endif; ?>
+  </div>
 
-    <input type="submit" name="submit" value="Submit">
-</form>
+  
+  <div style="padding-left: 500px; padding-right: 500px" class="Result">
+    <h2 style="margin:0px; padding: 20px">Edit a station member's information</h2>
+    
+    <form method="post">
 
-<div style="padding:20px; font-weight:bold" class="Footer-Overflow">
-     <a href="index.php">Back to main page</a>
+        <?php foreach ($user as $key => $value) : ?>
+          
+          <div class="form-group">
+            <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
+            <input class="input-control" placeholder="<?php echo $key; ?>" type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" 
+                  <?php echo ($key === 'id' ? 'readonly' : null); ?>>
+          </div>
+        <?php endforeach; ?>
+    
+        <input type="submit" name="submit" value="Submit">
+    </form>
+  </div>
+  
+  <div style="padding:20px; font-weight:bold" class="Footer-Overflow">
+        <a href="index.php">Back to main page</a>
+  </div>
+
 </div>
+
 
 <?php require "templates/footer.php"; ?>
