@@ -29,7 +29,7 @@
         
   </div>
 
-  <div class="Footer">
+  <div class="Credits">
     Made by Justin Chan, Patrick Lee, Carol Zhang | 
     <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
   </div>

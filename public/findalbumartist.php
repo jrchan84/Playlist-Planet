@@ -50,7 +50,8 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['submit'])) {
         // Check to see if there is a non-empty set of results
         if ($result && $statement->rowCount() > 0) { ?>
-        <div class="Result-true">
+        
+        <div class="Result">
             <h2>Search Results</h2>
     
             <table>
@@ -78,20 +79,33 @@ if (isset($_POST['submit'])) {
         </div>
     
         <?php } else { ?>
-            No results found for <?php echo escape($_POST['album_name']); ?>.
+
+            <div class="Result">
+                No results found for <?php echo escape($_POST['album_name']); ?>.
+            </div>
+
         <?php }
     } ?>
     
-    <h2>Find Album Artist</h2>
-    
-    <form method="post">
-        <label for="album_name">Album Name</label>
-        <input type="text" id="album_name" name="album_name">
-    
-        <input type="submit" name="submit" value="View Results">
-    </form>
-    
-    <a href="index.php"> Back to main page</a>
+    <div class="Input">
+        <h2>Find Album Artist</h2>
+        
+        <form method="post">
+            <label for="album_name">Album Name: </label>
+            <input type="text" id="album_name" name="album_name">
+        
+            <input type="submit" name="submit" value="View Results">
+        </form>
+    </div>
+
+    <div class="Footer">
+        <a href="index.php"> Back to main page</a>
+    </div>
+
+    <div class="Credits">
+        Made by Justin Chan, Patrick Lee, Carol Zhang | 
+        <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
+    </div>
 </div>
 
 
