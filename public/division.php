@@ -38,34 +38,44 @@ if (isset($_POST['submit'])) {
 
 <?php require "templates/header.php"; ?>
 
-<h2>See if a episode is in ALL shows</h2>
+<head>
+    <link rel="stylesheet" href="css/subpage.css" />
+</head>
 
-<form action="division.php" method="post">
-    <input type="text" name="episode_id" placeholder="Episode Id" />
-    </br>
-    <input type="submit" name="submit">
-</form>
+<div class="Main">
 
-</br>
-</br>
+    <div class="Input">
+        <h2>See if a episode is in ALL shows</h2>
 
-<?php
-    // Displays host_id of host who has hosted every episode if found
-    if (isset($_POST['submit']) && $result) {
-        echo "Episode ";
-        foreach($result as $row){
-            print $row->episode_id;
-            print ", ";
-            print $row->title;
-        }
-        echo " is in every show";
-    } else if (isset($_POST['submit'])) {
-        echo "Episode ";
-        echo $_POST["episode_id"];
-        echo " is NOT in every show";
-    }
-?>
+        <form action="division.php" method="post">
+            <input type="text" name="episode_id" placeholder="Episode ID" />
+            </br>
+            <input type="submit" name="submit">
+        </form>
+    </div>
 
-</br>
-<a href="index.php"> Back to main page</a>
+    <div class="Result">
+        <?php
+            // Displays host_id of host who has hosted every episode if found
+            if (isset($_POST['submit']) && $result) {
+                echo "Episode with ID #";
+                foreach($result as $row){
+                    print $row->episode_id;
+                    print ", ";
+                    print $row->title;
+                }
+                echo " is in every show";
+            } else if (isset($_POST['submit'])) {
+                echo "Episode with ID #";
+                echo $_POST["episode_id"];
+                echo " is NOT in every show";
+            }
+        ?>
+    </div>
+
+    <div class="Footer">
+        <a href="index.php"> Back to main page</a>
+    </div>
+</div>
+
 <?php include "templates/footer.php"; ?>
