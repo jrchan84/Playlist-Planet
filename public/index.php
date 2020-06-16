@@ -26,7 +26,11 @@
         <a href="projectstationmembers.php"><strong>Find Station Member Information</strong></a> - Find specific types of information about station members
         <br />
         <a href="no-of-members.php"><strong>Number of Station Members</strong></a> - Get current number of station members
-        
+        <br />
+        <a href="nestedagg.php"><strong>Nested Aggregation Query</strong></a> - Get episodes that are in more than a certain number of shows 
+        <br />
+        <a href="division.php"><strong>Division Query</strong></a> - See if an episode is in ALL shows
+
   </div>
 
   <div class="Credits">
