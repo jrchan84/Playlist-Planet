@@ -31,25 +31,36 @@ try {
 
 <?php require "templates/header.php"; ?>
 
-<style>
-    table {
-        margin: 20px;
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="css/subpage.css" />
+</head>
 
-<table class="Table">
-    <thead>
-        <tr>
-            <th>Number of Member(s):</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($result as $row): ?>
-        <tr>
-            <td><?php echo escape($row["no_of_members"]); ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+<div class="Main">
+
+    <div class="Result">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Number of Member(s):</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($result as $row): ?>
+                <tr>
+                    <td><?php echo escape($row["no_of_members"]); ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div style="padding:20px; font-weight:bold" class="Footer-Overflow">
+        <a href="index.php">Back to main page</a>
+    </div>  
+
+</div>
+
 
 <?php include "templates/footer.php"; ?>
