@@ -209,7 +209,7 @@ CREATE TABLE members_are_part_of_collectives(
     FOREIGN KEY (stn_member_id) REFERENCES station_members(host_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
-    FOREIGN KEY (collective_id) REFERENCEs station_members(host_id)
+    FOREIGN KEY (collective_id) REFERENCEs collectives(host_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
@@ -505,16 +505,16 @@ INSERT INTO show_has_episode VALUES (8, 3, 4);
 INSERT INTO show_has_episode VALUES (9, 4, 11);
 INSERT INTO show_has_episode VALUES (10, 5, 16);
 
-INSERT INTO members_are_part_of_collectives VALUES (1, 11);
-INSERT INTO members_are_part_of_collectives VALUES (2, 12);
-INSERT INTO members_are_part_of_collectives VALUES (3, 13);
-INSERT INTO members_are_part_of_collectives VALUES (4, 14);
-INSERT INTO members_are_part_of_collectives VALUES (5, 15);
-INSERT INTO members_are_part_of_collectives VALUES (19, 11);
-INSERT INTO members_are_part_of_collectives VALUES (18, 12);
-INSERT INTO members_are_part_of_collectives VALUES (16, 13);
-INSERT INTO members_are_part_of_collectives VALUES (15, 13);
-INSERT INTO members_are_part_of_collectives VALUES (14, 15);
+INSERT INTO members_are_part_of_collectives VALUES (1, 1);
+INSERT INTO members_are_part_of_collectives VALUES (2, 1);
+INSERT INTO members_are_part_of_collectives VALUES (3, 2);
+INSERT INTO members_are_part_of_collectives VALUES (4, 3);
+INSERT INTO members_are_part_of_collectives VALUES (5, 3);
+INSERT INTO members_are_part_of_collectives VALUES (19, 6);
+INSERT INTO members_are_part_of_collectives VALUES (18, 6);
+INSERT INTO members_are_part_of_collectives VALUES (16, 10);
+INSERT INTO members_are_part_of_collectives VALUES (15, 10);
+INSERT INTO members_are_part_of_collectives VALUES (14, 10);
 
 
 

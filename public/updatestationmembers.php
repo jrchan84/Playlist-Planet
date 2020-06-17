@@ -72,7 +72,7 @@ try {
                     <td><?php echo escape($row["alt_phone"]); ?></td>
                     <td><?php echo escape($row["interests"]); ?></td>
                     <td><?php echo escape($row["skills"]); ?></td>
-                    <td><a href="updatestationmember.php?host_id=<?php echo escape($row["host_id"]);?>">Edit</a></td>
+                    <td><a class="Link" href="updatestationmember.php?host_id=<?php echo escape($row["host_id"]);?>">Edit</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

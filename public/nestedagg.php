@@ -32,34 +32,46 @@ if (isset($_POST['submit'])) {
 
 <?php require "templates/header.php"; ?>
 
-<h2>See episodes that are in more than _ shows </h2>
+<head>
+    <link rel="stylesheet" href="css/subpage.css" />
+</head>
 
-<form action="nestedagg.php" method="post">
-    <input type="text" name="num" placeholder="num" />
-    </br>
-    <input type="submit" name="submit">
-</form>
 
-</br>
-</br>
+<div class="Main">
 
-<?php
-    // Displays host_id of host who has hosted every episode if found
-    if (isset($_POST['submit']) && $result) {
-        echo "Episodes ";
-        foreach($result as $row){
-            print $row->episode_id;
-            print " (";
-            print $row->count;
-            print ")";
-            print ", ";
-        }
-        echo " are in $num or more shows.";
-    } else if (isset($_POST['submit'])) {
-        echo "No episodes are in $num or more shows";
-    }
-?>
 
-</br>
-<a href="index.php"> Back to main page</a>
+    <div class="Input">
+        <h2>See episodes that are in more than _ shows </h2>
+        <form action="nestedagg.php" method="post">
+            <input type="text" name="num" placeholder="Enter Number" />
+            </br>
+            <input type="submit" name="submit">
+        </form>
+    </div>
+
+    <div class="Result">
+        <hr/>
+        <?php
+            // Displays host_id of host who has hosted every episode if found
+            if (isset($_POST['submit']) && $result) {
+                echo "Episodes ";
+                foreach($result as $row){
+                    print $row->episode_id;
+                    print " (";
+                    print $row->count;
+                    print ")";
+                    print ", ";
+                }
+                echo " are in $num or more shows.";
+            } else if (isset($_POST['submit'])) {
+                echo "No episodes are in $num or more shows";
+            }
+        ?>
+    </div>
+
+    <div class="Footer">
+            <a href="index.php"> Back to main page</a>
+    </div>
+</div>
+
 <?php include "templates/footer.php"; ?>
