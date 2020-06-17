@@ -52,6 +52,8 @@
     </head>
 
     <div class="Main">
+        <br>
+        <br>
         <?php 
             // Displays station member first name is user was sucessfully created.
             if (isset($_POST['submit']) && $statement) {
@@ -98,14 +100,9 @@
 
     </div>
 
-        <div class="Footer">
-            <a href="index.php"> Back to main page</a>
-        </div>
-
-        <div class="Credits">
-            Made by Justin Chan, Patrick Lee, Carol Zhang | 
-            <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
-         </div>
+    <div style="padding:20px; font-weight:bold" class="Footer-Overflow">
+            <a href="index.php">Back to main page</a>
+    </div>  
 
     </div>  
 

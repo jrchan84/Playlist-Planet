@@ -88,14 +88,18 @@ try {
             There 
             <?php 
                 if ($result[0]['no_of_members'] > 1) {
-                    echo "are";
+                    echo "are ";
                 } else {
-                    echo "is";
+                    echo "is ";
                 }
             ?> 
-            <?php echo escape($result[0]['no_of_members']); ?> 
-            member(s) in the 
-            <?php echo escape($_POST['collective_name']); ?>.
+            <?php echo escape($result[0]['no_of_members']);
+                if ($result[0]['no_of_members'] > 1) {
+                    echo " members in the ";
+                } else {
+                    echo " member in the ";
+                }
+                echo escape($_POST['collective_name']); ?>.
         </div>
     
         <?php } else { ?>
@@ -108,10 +112,9 @@ try {
         <?php }
     } ?>
 
-    <div class="Footer">
-        <a href="index.php"> Back to main page</a>
+    <div style="padding:20px; font-weight:bold" class="Footer-Overflow">
+        <a href="index.php">Back to main page</a>
     </div> 
-
 </div>
 
 

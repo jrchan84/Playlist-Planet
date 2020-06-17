@@ -75,8 +75,8 @@ if (isset($_POST['submit'])) {
         ?>
     </div>
 
-    <div class="Footer">
-        <a href="index.php"> Back to main page</a>
+    <div style="padding:20px; font-weight:bold" class="Footer-Overflow">
+        <a href="index.php">Back to main page</a>
     </div>
 </div>
 

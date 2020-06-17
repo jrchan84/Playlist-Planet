@@ -99,13 +99,8 @@ if (isset($_POST['submit'])) {
         </form>
     </div>
 
-    <div class="Footer">
-        <a href="index.php"> Back to main page</a>
-    </div>
-
-    <div class="Credits">
-        Made by Justin Chan, Patrick Lee, Carol Zhang | 
-        <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
+    <div style="padding:20px; font-weight:bold" class="Footer-Overflow">
+        <a href="index.php">Back to main page</a>
     </div>
 </div>
 

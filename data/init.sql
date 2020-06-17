@@ -58,19 +58,11 @@ CREATE TABLE shows(
     PRIMARY KEY (show_id)
 );
 
-/*
-CREATE TABLE hosts(
-    host_id INTEGER AUTO_INCREMENT,
-    PRIMARY KEY (host_id)
-);
-*/
-
 CREATE TABLE collectives(
     host_id INTEGER,
     name VARCHAR(255),
     description CHAR(255),
     PRIMARY KEY (host_id)
-    /*FOREIGN KEY (host_id) REFERENCES hosts(host_id) ON DELETE CASCADE*/
 );
 
 CREATE TABLE station_members(
@@ -88,7 +80,6 @@ CREATE TABLE station_members(
     interests VARCHAR(255),
     skills VARCHAR(255),
     PRIMARY KEY (host_id)
-    /*FOREIGN KEY (host_id) REFERENCES hosts(host_id) ON DELETE CASCADE*/
 );
 
 
@@ -209,7 +200,7 @@ CREATE TABLE members_are_part_of_collectives(
     FOREIGN KEY (stn_member_id) REFERENCES station_members(host_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
-    FOREIGN KEY (collective_id) REFERENCEs collectives(host_id)
+    FOREIGN KEY (collective_id) REFERENCES collectives(host_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
@@ -279,39 +270,6 @@ INSERT INTO shows VALUES (7, 'Hip-Hop Hustle', '2012-09-05', 1);
 INSERT INTO shows VALUES (8, 'Nightcore Network', '2012-09-04', 0);
 INSERT INTO shows VALUES (9, 'Ambient Noise', '2015-02-03', 1);
 INSERT INTO shows VALUES (10, 'Experimental Echoes', '2016-01-07', 1);
-
-/*
-INSERT INTO hosts VALUES (1);
-INSERT INTO hosts VALUES (2);
-INSERT INTO hosts VALUES (3);
-INSERT INTO hosts VALUES (4);
-INSERT INTO hosts VALUES (5);
-INSERT INTO hosts VALUES (6);
-INSERT INTO hosts VALUES (7);
-INSERT INTO hosts VALUES (8);
-INSERT INTO hosts VALUES (9);
-INSERT INTO hosts VALUES (10);
-INSERT INTO hosts VALUES (11);
-INSERT INTO hosts VALUES (12);
-INSERT INTO hosts VALUES (13);
-INSERT INTO hosts VALUES (14);
-INSERT INTO hosts VALUES (15);
-INSERT INTO hosts VALUES (16);
-INSERT INTO hosts VALUES (17);
-INSERT INTO hosts VALUES (18);
-INSERT INTO hosts VALUES (19);
-INSERT INTO hosts VALUES (20);
-INSERT INTO hosts VALUES (21);
-INSERT INTO hosts VALUES (22);
-INSERT INTO hosts VALUES (23);
-INSERT INTO hosts VALUES (24);
-INSERT INTO hosts VALUES (25);
-INSERT INTO hosts VALUES (26);
-INSERT INTO hosts VALUES (27);
-INSERT INTO hosts VALUES (28);
-INSERT INTO hosts VALUES (29);
-INSERT INTO hosts VALUES (30);
-*/
 
 INSERT INTO collectives VALUES (1, 'Sports Collective', '');
 INSERT INTO collectives VALUES (2, 'News Collective', '');
