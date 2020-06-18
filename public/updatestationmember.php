@@ -10,26 +10,24 @@ require "../config.php";
 require "../common.php";
 
 // Update station member information
-if (isset($_POST['submit'])) {
+if (isset($_POST['updateUserSubmit'])) {
     try {
         $connection = new PDO($dsn, $username, $password, $options);
 
-        // Store updated information in array
-        $user = array(
-            "host_id"       => $_POST['host_id'],
-            "first_name"    => $_POST['first_name'],
-            "last_name"     => $_POST['last_name'],
-            "province"      => $_POST['province'],
-            "postalcode"    => $_POST['postalcode'],
-            "pronouns"      => $_POST['pronouns'],
-            "address"       => $_POST['address'],
-            "city"          => $_POST['city'],
-            "email"         => $_POST['email'],
-            "primary_phone" => $_POST['primary_phone'],
-            "alt_phone"     => $_POST['alt_phone'],
-            "interests"     => $_POST['interests'],
-            "skills"        => $_POST['skills']
-          );
+        // get user input
+        $host_id = $_POST['updateHostInput'];
+        $first_name = $_POST['updateFirstNameInput'];
+        $lastName = $_POST['updateLastNameInput'];
+        $province = $_POST['updateProvinceInput'];
+        $postalCode = $_POST['updatePostalInput'];
+        $pronouns = $_POST['updatePronounsInput'];
+        $address = $_POST['updateAddressInput'];
+        $city = $_POST['updateCityInput'];
+        $email = $_POST['updateEmailInput'];
+        $primaryPhone = $_POST['updatePrimaryPhoneInput'];
+        $altPhone = $_POST['updateAltPhoneInput'];
+        $interests = $_POST['updateInterestsInput'];
+        $skills = $_POST['updateSkillsInput'];
 
         $sql = "UPDATE station_members
                 SET first_name = :first_name,
@@ -47,73 +45,25 @@ if (isset($_POST['submit'])) {
                 WHERE host_id = :host_id";
 
         $statement = $connection->prepare($sql);
-        $statement->execute($user);
+        $statement->bindValue(':host_id', $host_id);
+        $statement->bindValue(':first_name', $first_name);
+        $statement->bindValue(':last_name', $lastName);
+        $statement->bindValue(':province', $province);
+        $statement->bindValue(':postalcode', $postalCode);
+        $statement->bindValue(':pronouns', $pronouns);
+        $statement->bindValue(':address', $address);
+        $statement->bindValue(':city', $city);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':primary_phone', $primaryPhone);
+        $statement->bindValue(':alt_phone', $altPhone);
+        $statement->bindValue(':interests', $interests);
+        $statement->bindValue(':skills', $skills);
+        $statement->execute();
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
   }
 
-// Display user information of selected station member
-if (isset($_GET['host_id'])) {
-    try {
-        // Make database connection, grabbing selected station member
-        $connection = new PDO($dsn, $username, $password, $options);
-        $id = $_GET['host_id'];
-    
-        // SQL execution
-        $sql = "SELECT * FROM station_members WHERE host_id = :host_id";
-        $statement = $connection->prepare($sql);
-        $statement->bindValue(':host_id', $id);
-        $statement->execute();
-    
-        $user = $statement->fetch(PDO::FETCH_ASSOC);
-    } catch(PDOException $error) {
-        echo $sql . "<br>" . $error->getMessage();
-    }
-} else {
-    echo "This user could not be found!";
-    exit;
-}
+header('location: host.php#updateUserTab');
+echo '<script>alert("User has been updated")</script>' ;
 ?>
-
-<?php require "templates/header.php"; ?>
-
-<head>
-    <link rel="stylesheet" href="css/subpage.css" />
-</head>
-
-<div class="Main">
-
-  <div class="Input">
-    <?php if (isset($_POST['submit']) && $statement) : ?>
-      <?php echo escape($_POST['first_name']); ?> successfully updated.
-    <?php endif; ?>
-  </div>
-
-  
-  <div style="padding-left: 500px; padding-right: 500px" class="Result">
-    <h2 style="margin:0px; padding: 20px">Edit a station member's information</h2>
-    
-    <form method="post">
-
-        <?php foreach ($user as $key => $value) : ?>
-          
-          <div class="form-group">
-            <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-            <input class="input-control" placeholder="<?php echo $key; ?>" type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" 
-                  <?php echo ($key === 'id' ? 'readonly' : null); ?>>
-          </div>
-        <?php endforeach; ?>
-    
-        <input type="submit" name="submit" value="Submit">
-    </form>
-  </div>
-  
-  <div style="padding:20px; font-weight:bold" class="Footer-Overflow">
-        <a href="index.php">Back to main page</a>
-  </div>
-
-</div>
-
-
-<?php require "templates/footer.php"; ?>

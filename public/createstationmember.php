@@ -1,113 +1,53 @@
 <?php
+//create a new user from host.html create form
+require "../config.php";
+require "../common.php";
 
-/**
-  * Use an HTML form to create a new entry in the
-  * users table.
-  *
-  */
+if (isset($_POST['createSubmit'])) {
 
-    if (isset($_POST['submit'])) {
-        // Pulling in required files
-        require "../config.php";
-        require "../common.php";
+    try {
+        // If the submission was valid, connect to the database
+        $connection = new PDO($dsn, $username, $password, $options);
 
-        try {
-            // If the submission was valid, connect to the database
-            $connection = new PDO($dsn, $username, $password, $options);
+        // get user info
+        $firstName = $_POST['createFirstNameInput'];
+        $lastName = $_POST['createLastNameInput'];
+        $province = $_POST['createProvinceInput'];
+        $postalCode = $_POST['createPostalCodeInput'];
+        $pronouns = $_POST['createPronounsInput'];
+        $address = $_POST['createAddressInput'];
+        $city = $_POST['createCityInput'];
+        $email = $_POST['createEmailInput'];
+        $primaryPhone = $_POST['createPrimaryPhoneInput'];
+        $altPhone = $_POST['createAltPhoneInput'];
+        $interests = $_POST['createInterestsInput'];
+        $skills = $_POST['createSkillsInput'];
 
-            // Store all user info into an array
-            $new_user = array(
-                "first_name"    => $_POST['first_name'],
-                "last_name"     => $_POST['last_name'],
-                "province"      => $_POST['province'],
-                "postalcode"    => $_POST['postalcode'],
-                "pronouns"      => $_POST['pronouns'],
-                "address"       => $_POST['address'],
-                "city"          => $_POST['city'],
-                "email"         => $_POST['email'],
-                "primary_phone" => $_POST['primary_phone'],
-                "alt_phone"     => $_POST['alt_phone'],
-                "interests"     => $_POST['interests'],
-                "skills"        => $_POST['skills']
-              );
 
-            // SQL statement
-            $sql = "INSERT INTO station_members (first_name, last_name, province, postalcode, pronouns, address, city, email, primary_phone, alt_phone, interests, skills)
-                    VALUES (:first_name, :last_name, :province, :postalcode, :pronouns, :address, :city, :email, :primary_phone, :alt_phone, :interests, :skills)";
-            
-            // Prepare and execute SQL statement
-            $statement = $connection->prepare($sql);
-            $statement->execute($new_user);
+        // SQL statement
+        $sql = "INSERT INTO station_members (first_name, last_name, province, postalcode, pronouns, address, city, email, primary_phone, alt_phone, interests, skills)
+                VALUES (:first_name, :last_name, :province, :postalcode, :pronouns, :address, :city, :email, :primary_phone, :alt_phone, :interests, :skills)";
 
-        } catch(PDOException $error) {
-            echo $sql . "<br>" . $error->getMessage();
-        }
+        // Prepare and execute SQL statement
+        $statement = $connection->prepare($sql);
+        $statement->bindValue(':first_name', $firstName);
+        $statement->bindValue(':last_name', $lastName);
+        $statement->bindValue(':province', $province);
+        $statement->bindValue(':postalcode', $postalCode);
+        $statement->bindValue(':pronouns', $pronouns);
+        $statement->bindValue(':address', $address);
+        $statement->bindValue(':city', $city);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':primary_phone', $primaryPhone);
+        $statement->bindValue(':alt_phone', $altPhone);
+        $statement->bindValue(':interests', $interests);
+        $statement->bindValue(':skills', $skills);
+        $statement->execute();
+
+    } catch(PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
     }
-    ?>
-
-    <?php require "templates/header.php"; ?>
-
-    <head>
-    <link rel="stylesheet" href="css/subpage.css" />
-    </head>
-
-    <div class="Main">
-        <?php 
-            // Displays station member first name is user was sucessfully created.
-            if (isset($_POST['submit']) && $statement) {
-                echo $_POST['first_name'];
-                echo " successfully added.";
-            } ?>
-
-    <div class="Form">  
-        
-        <h2> Add a station member </h2>
-    
-    <!-- Input form for creating a new station member -->
-        <form method="post">
-            <div class="form-group">
-                <input placeholder="First Name" type="text" name="first_name" id="first_name" class="input-control">
-                    <input placeholder="Last Name" type="text" name="last_name" id="last_name" class="input-control">
-                        <input placeholder="Pronouns" type="text" name="pronouns" id="pronouns" class="input-control">
-            </div>
-            
-            <div class="form-group">
-                <input placeholder="Address" type="text" name="address" id="address" class="input-control">
-                    <input placeholder="City" type="text" name="city" id="city" class="input-control" style="flex: 6">
-                        <input placeholder="Province" type="text" name="province" id="province" class="input-control" style="flex: 1">
-                            <input placeholder="Postal Code" type="text" name="postalcode" id="postalcode" class="input-control" style="flex: 2">
-            </div>
-            
-            <div class="form-group">
-                <input placeholder="Email Address" type="text" name="email" id="email" class="input-control" style="flex: 6">
-                    <input placeholder="Primary Phone" type="text" name="primary_phone" id="primary_phone" class="input-control" style="flex: 3">
-                        <input placeholder="Alternate Phone" type="text" name="alt_phone" id="alt_phone" class="input-control" style="flex: 3">
-            </div>
-
-            <div class="form-group">
-                <input placeholder="Interests" type="text" name="interests" id="interests" class="input-control">
-            </div>
-
-            <div class="form-group">
-                <input placeholder="Skills" type="text" name="skills" id="skills" class="input-control">
-            </div>
-        
-            <input type="submit" name="submit" value="Submit">
-
-        </form>
-
-    </div>
-
-        <div class="Footer">
-            <a href="index.php"> Back to main page</a>
-        </div>
-
-        <div class="Credits">
-            Made by Justin Chan, Patrick Lee, Carol Zhang | 
-            <a href="https://github.com/RedundantComputation/playlist-planet"> <b>Github Repo</b></a>
-         </div>
-
-    </div>  
-
-
-<?php include "templates/footer.php"; ?>
+}
+header('location: host.php#createUserTab');
+echo '<script>alert("New user has been created")</script>' ;
+?>
